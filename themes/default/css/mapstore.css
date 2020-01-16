@@ -1,0 +1,157 @@
+/**
+ * @Project NUKEVIET 4.x
+ * @Author Thương Mại Số (thuongmaiso.com.vn)
+ * @Copyright (C) 2018 Thương Mại Số. All rights reserved
+ * @License: Not free read more http://nukeviet.vn/vi/store/modules/nvtools/
+ * @Createdate Wed, 30 May 2018 01:10:10 GMT
+ */
+ 
+.item_cuahang .image_cuahang img {
+    width: 100%;
+}
+.title_loai_cuahang {
+    text-transform: uppercase;
+    border-bottom: 2px solid red;
+    margin-bottom: 10px;
+}
+.content_cuahang .loai_cuahang {
+    margin-bottom: 20px;
+}
+.content_cuahang .title_cuahang {
+    margin-top: 5px;
+}
+.content_cuahang .title_cuahang a{
+    font-weight: 700;
+    margin-top: 5px;
+    font-size: 17px;
+    color: #65b82e;
+}
+.content_cuahang .image_cuahang {
+    height: 180px;
+    overflow: hidden;
+}
+.tt_image_detail img {
+    width: 100%;
+    padding-right: 20px;
+}
+.content_detail_cuahang .title_cuahang a{
+    font-weight: 700;
+    font-size: 17px;
+    color: #65b82e;
+}
+.content_detail_cuahang .thuonghieu_cuahang a {
+    font-weight: 700;
+    font-size: 16px;
+    color: black;
+}
+.content_detail_cuahang .sdt_cuahang a {
+    color: red;
+    font-weight: 700;
+    font-size: 17px;
+}
+ul.nav.nav-tabs1 {
+    margin-bottom: 10px;
+}
+ul.nav.nav-tabs1 li {
+    display: inline-block;
+    border-right: 1px solid white;
+    
+}
+ul.nav.nav-tabs1 li a {
+    color: white;
+    text-transform: uppercase;
+	font-weight:700
+}
+ul.nav.nav-tabs1 {
+    background: #65b82e;
+    display: flex;
+}
+ul.nav.nav-tabs1 > li > a:hover, .ul.nav.nav-tabs1 > li > a:focus , .nav-tabs1 .active a{
+    text-decoration: none;
+    background-color: red !Important;
+}
+ul.nav.nav-tabs1 {
+    background: #65b82e;
+}
+.thongtin_chitiet_cuahang_map {
+    margin-top: 20px;
+}
+.danhsach_cuahang .item_cuahang {
+    height: 290px;
+    overflow: hidden;
+}
+div#map_bando {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    z-index: 9999999;
+}
+.content_maps #map{
+width:100%;
+height:700px;
+
+
+}
+#map_block
+{
+width:100%;
+position: relative;
+    width: 100%;
+    height: 700px;
+    z-index: 9999999;
+}
+.content_map_main {
+    width: 120px;
+}
+.tiede_map_main {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.image_des_map img {
+    width: 100%;
+	margin-right:0px;
+}
+.title_tk_ch {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: red;
+    margin-top: 20px;
+    padding-left: 5px;
+	margin-bottom:20px;
+}
+.content_tk_cuahang .form-group {
+    display: flow-root;
+}
+.danhsach_cuahang_list ul {
+    padding-left: 5px;
+    height: 400px;
+    overflow-y: scroll;
+}
+.danhsach_cuahang_list li i {
+   padding-right:8px;
+    color: #d10000;
+	font-size:10px
+}
+.danhsach_cuahang_list li a {
+    display: block;
+    padding: 7px 5px;
+	color:black
+}
+.danhsach_cuahang_list li a:hover {
+    background: #d10000;
+    color: white;
+}
+
+.danhsach_cuahang_list::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+.danhsach_cuahang_list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px red; 
+    border-radius: 10px;
+}
+ 
+.danhsach_cuahang_list::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px red; 
+}

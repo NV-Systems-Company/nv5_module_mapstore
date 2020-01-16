@@ -1,0 +1,597 @@
+/**
+ * @Project NUKEVIET 4.x
+ * @Author Thương Mại Số (thuongmaiso.com.vn)
+ * @Copyright (C) 2018 Thương Mại Số. All rights reserved
+ * @License: Not free read more http://nukeviet.vn/vi/store/modules/nvtools/
+ * @Createdate Wed, 30 May 2018 01:10:10 GMT
+ */
+ 
+ input#id_home_img {
+    display: inline-block;
+}
+button#img_home_img {
+    position: relative;
+    top: -2px;
+}
+
+
+.fr{float: right}
+.clear{clear: both}
+.text-danger{color:#CC0F0F; font-weight: bold; padding-top: 4px}
+.alert-success {
+background-color: #dff0d8;
+border-color: #d6e9c6;
+color: #3c763d;
+}
+.alert {
+padding: 15px;
+margin-bottom: 18px;
+border: 1px solid transparent;
+border-radius: 4px;
+}
+.alert i.fa-times{
+	float: right;
+	cursor:pointer
+}
+.has-error .control-label{
+	color: #CC0F0F;	
+}
+.has-error .form-control{
+	border-color: #CC0F0F;	
+}
+img.ui-datepicker-trigger {
+    display: none;
+}
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
+	color: #f56b6b;
+}
+.has-error .form-control {
+	border-color: #f56b6b;
+}
+div.required .control-label:not(span):before, td.required:before {
+	content: '* ';
+	color: #F00;
+	font-weight: bold;
+}
+.spansearch, .spanbank {
+    position: relative;
+	display:block
+}
+.spansearch i, .spanbank i {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: none;
+}
+.spansearch input, .spanbank input {
+    padding-right: 14px;
+}
+
+select:disabled{
+	background: #dedede
+}
+#raovat_images{margin-top:4px;}
+
+.news {
+	clear: both;
+	margin: 2px 0;
+	text-align: right
+}
+#mapcontent {
+	width: 100%;
+	height: 500px;
+}
+.controls {
+			margin-top: 10px;
+			border: 1px solid transparent;
+			border-radius: 2px 0 0 2px;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			height: 32px;
+			outline: none;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+		  }
+
+		  #searchBox {
+			background-color: #fff;
+			font-family: Roboto;
+			font-size: 15px;
+			font-weight: 300;
+			margin-left: 12px;
+			padding: 0 11px 0 13px;
+			text-overflow: ellipsis;
+			width: 300px;
+		  }
+
+		  #searchBox:focus {
+			border-color: #4d90fe;
+		  }
+ 
+
+		  #type-selector {
+			color: #fff;
+			background-color: #4d90fe;
+			padding: 5px 11px 0px 11px;
+		  }
+
+		  #type-selector label {
+			font-family: Roboto;
+			font-size: 13px;
+			font-weight: 300;
+		  }
+		  #target {
+			width: 345px;
+		  } 
+.news label {
+	border-bottom: 1px dotted #ccc;
+	display: inline;
+	float: left;
+	text-align: left;
+	width: 150px
+}
+
+.news input {
+	width: 380px
+}
+
+.news select {
+	width: 382px
+}
+
+.news_checkbox {
+	width: 18px !important
+}
+
+.collapse_buttons, .collapse_buttons {
+	width: 280px
+}
+
+.message_list {
+	list-style: none;
+	margin: 0;
+	padding: 0
+}
+
+.message_list li {
+	background: url(../images/message-bar.gif) no-repeat;
+	margin: 0;
+	padding: 0
+}
+
+.message_head .timestamp, .show_all_message, .collpase_all_message {
+	color: #666
+}
+
+.message_head {
+	cursor: pointer;
+	font-size: 95%;
+	padding: 0px 10px;
+	position: relative
+}
+
+.message_head .timestamp {
+	position: absolute;
+	right: 10px;
+	top: 5px
+}
+
+.timestamp {
+	font-size: 85%
+}
+
+.message_head cite {
+	font-size: 100%;
+	font-style: normal;
+	font-weight: 700
+}
+
+.message_body {
+	padding: 0px 10px 15px
+}
+
+.collapse_buttons {
+	border-top: solid 1px #e4e4e4;
+	padding: 5px 0;
+	text-align: right
+}
+
+.collapse_buttons a {
+	float: right;
+	margin-left: 15px
+}
+
+.show_all_message {
+	background: url(../images/tall-down-arrow.gif) no-repeat right center;
+	padding-right: 12px
+}
+
+.collpase_all_message {
+	background: url(../images/collapse-all.gif) no-repeat right center;
+	padding-right: 12px
+}
+
+.divbor {
+	border: 1px solid #DADADA;
+	padding: 8px
+}
+
+.divbor td {
+	padding: 8px
+}
+
+.gray {
+	background: #F0F0F0;
+	border: 1px solid #DADADA;
+	margin-bottom: 2px;
+	padding: 0 4px 4px
+}
+
+ul li {
+	list-style: none
+}
+
+select, input {
+	font-family: Arial;
+	font-size: 13px
+}
+
+.newserror {
+	background: #F8F8F8;
+	border: 1px solid #F2F2F2;
+	color: red;
+	display: block;
+	font-size: 12px;
+	font-weight: 700;
+	margin-bottom: 2px;
+	padding: 10px
+}
+
+.news input, .news select, .textareas, .message_body textarea, .message_body select {
+	border: 1px solid #ccc
+}
+
+/* as fb */
+.uiInlineTokenizer .uiToken {
+    top: 2px;
+}
+
+.uiInlineTokenizer {
+    border: 1px solid #BDC7D8;
+    cursor: text;
+}
+.uiCloseButtonSmall {
+    background-image: url("../images/delfb.png");
+    height: 11px;
+    margin-top: 1px;
+    width: 11px;
+}
+.uiCloseButton {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.uiTypeahead{
+    border-top: 1px solid #ccc;
+}
+.uiTypeahead .innerWrap {
+    overflow: hidden;
+}
+.uiTypeahead .textInput {
+    background:none !important;
+    border: none!important;
+    border: 0 none;
+    outline: 0 none;
+    -webkit-box-shadow: 0 0 0 #fff;
+    -moz-box-shadow: 0 0 0 #fff;
+    box-shadow: 0 0 0 #fff;
+}
+.uiTypeahead .selected {
+    background-color: #E2E8F6;
+}
+.uiTypeaheadDisabled, .uiTypeaheadDisabled div.wrap {
+    border-color: #CCCCCC;
+}
+.uiTypeaheadDisabled div.wrap {
+    background: none repeat scroll 0 0 #E2E2E2;
+}
+.uiToken {
+    background: #E6E6E6;
+    border: 1px solid #ccc;
+    border-radius: 2px 2px 2px 2px;
+    color: #1C2A47;
+    cursor: default;
+    display: block;
+    float: left;
+    height: 25px;
+	line-height: 24px;
+    margin: 0 4px 4px 0;
+    padding: 0 3px;
+    position: relative;
+    font-size: 13px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.uiToken .remove {
+    margin: 2px 0 -2px 1px;
+    outline: medium none;
+}
+.uiTokenSelected {
+    background-color: #6D84B4;
+    border-color: #3B5998;
+    color: #FFFFFF;
+}
+.uiTokenGray {
+    background: none repeat scroll 0 0 #DDDDDD;
+    border-color: gray;
+}
+.uiTokenizer {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+
+.tokenarea {
+    overflow: hidden;
+    padding-left: 3px;
+}
+.uiContextualTypeaheadView {
+    position: static;
+}
+.uiTypeaheadView ul {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #333333 #333333 #293E6A;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 1px 2px;
+    overflow: hidden;
+    padding: 2px 0;
+}
+.uiTypeaheadView .freeform {
+    border-top-color: #DDDDDD;
+    padding: 2px 6px 1px;
+    text-align: center;
+}
+
+/* Icon info */
+.news-inf-icons{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.news-inf-icons li{
+	display: inline-block;
+	padding-left: 10px;
+}
+.news-inf-icons li:first-child{
+	padding-left: 0;
+}
+
+.container {width: 100%; margin: 10px auto;}
+
+
+/* Ä‘Äƒng tin */
+.nones{width:33.333%;float:left}
+.nones h3{margin-bottom:0px;padding-top:6px;}
+.nones div{padding-top: 10px;}
+.nones{}
+.steps {
+overflow: hidden;
+margin-bottom: 15px;
+padding-top: 20px;
+}
+.step1, .step2 {
+width: 366px;
+float: left;
+}
+.step1 {
+margin-right: 20px;
+}
+
+.step1.active .bar, .step2.active .bar {
+background: #df3832;
+position: relative;
+}
+.steps .bar {
+background: #dddddd;
+border-radius: 10px;
+-moz-border-radius: 10px;
+-ms-border-radius: 10px;
+-o-border-radius: 10px;
+-webkit-border-radius: 10px;
+width: 100%;
+height: 4px;
+}
+.step1.active .bar:before, .step2.active .bar:before {
+content: "1";
+width: 30px;
+height: 30px;
+line-height: 30px;
+color: #ffffff;
+font-weight: bold;
+font-size: 20px;
+text-align: center;
+border-radius: 60px;
+-moz-border-radius: 60px;
+-ms-border-radius: 60px;
+-o-border-radius: 60px;
+-webkit-border-radius: 60px;
+background: #df3832;
+position: absolute;
+top: -15px;
+left: 46%;
+}
+
+.steps p {
+margin-top: 20px;
+font-weight: bold;
+font-size: 13px;
+color: #333333;
+text-align: center;
+}
+.step1.active p, .step2.active p {
+color: #df3832;
+}
+#BoxPostProperty {
+border: 1px #d7d6e7 solid;
+position: relative;
+z-index: 0;
+}
+
+
+.TitleBox {
+background-color: #f6f6f6;
+padding: 8px 0;
+text-align: left;
+border-bottom: 1px #d7d6e7 solid;
+position: relative;
+}
+
+.TitleBox h2 {
+font-size: 16px;
+font-weight: bold;
+color: #df3832;
+padding: 0 10px;
+}
+
+#BoxPostProperty .DesBoxPostProperty {
+padding: 10px 0px 5px 0px;
+text-align: left;
+background: #ffffff;
+}
+
+#BoxPostProperty table {
+border: none;
+width: 100%;
+border-spacing: 0;
+}
+
+#BoxPostProperty .DesBoxPostProperty td {
+border: none;
+padding: 4px 5px 4px 5px;
+vertical-align: middle;
+}
+
+#BoxPostProperty table tr td.Col1 {
+text-align: left;
+padding-left: 55px;
+}
+.star {
+color: #df3832 !important;
+}
+#BoxPostProperty table tr td.Col2 {
+text-align: left;
+vertical-align: middle;
+}
+#BoxPostProperty .input-title {
+width: 500px;
+height: 28px;
+line-height: 28px;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-ms-box-sizing: border-box;
+}
+.light {
+float: right;
+position: relative;
+right: 50px;
+right: 75px;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0)
+{
+	.light {
+		right: 100px;
+	}
+}
+#BoxPostProperty table tr.BgAreaTitle {
+background-color: #efefef;
+}
+#BoxPostProperty .textarea {
+width: 500px;
+height: 100px;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-ms-box-sizing: border-box;
+}
+#BoxPostProperty .DesBoxPostProperty td {
+border: none;
+padding: 4px 5px 4px 5px;
+vertical-align: middle;
+}
+#BoxPostProperty table tr td.AreaTitle {
+font-weight: bold;
+padding: 8px 10px;
+font-size: 14px;
+color: #333;
+border-top: 1px solid #d7d6e7;
+border-bottom: 1px solid #d7d6e7;
+}
+#BoxPostProperty .input_text {
+width: 143px;
+height: 28px;
+line-height: 28px;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-ms-box-sizing: border-box;
+}
+#BoxPostProperty .select, .DesBoxPostProperty .select {
+width: 143px;
+height: 28px;
+line-height: 28px;
+padding: 3px;
+}
+
+.light img {
+cursor: help;
+}
+
+#dhtmltooltip {
+position: absolute;
+left: -300px;
+width: 390px;
+padding: 3px;
+visibility: hidden;
+z-index: 100;
+background-color: #e9e7b1;
+}
+.toolTipAcc {
+background: #fcf9d9;
+padding: 15px;
+width: 300px;
+border: 1px solid #fff3ab;
+}
+#dhtmlpointer {
+position: absolute;
+left: -300px;
+z-index: 101;
+visibility: hidden;
+}
+#raovat_images li{ display: inline-block; margin-right:2px; margin-bottom:2px; position:relative}
+ 
+.Control {
+PADDING-BOTTOM: 2px;
+PADDING-LEFT: 0px;
+PADDING-RIGHT: 0px;
+HEIGHT: 16px;
+PADDING-TOP: 2px;
+}
+span.bor_right {
+border-right: #ccc 1px solid;
+padding-right: 8px;
+}
+.bando_map tr.BgAreaTitle td {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.bando_map tr.BgAreaTitle {
+    background: #f8f8f8;
+    padding: 10px;
+}
+.bando_map .select2 {
+    width: 100% !important;
+}
