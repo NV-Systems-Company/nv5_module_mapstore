@@ -10,15 +10,15 @@
 
 if ( ! defined( 'NV_IS_FILE_ADMIN' ) ) die( 'Stop!!!' );
 
-if( $nv_Request->isset_request( 'province_ajax', 'post, get' ) )
+if( $nv_Request->isset_request( 'provinceid_ajax', 'post, get' ) )
 {
 	$json = array();
 
-	$provinceid = $nv_Request->get_int( 'province_ajax', 'post', 0 );
+	$provinceid = $nv_Request->get_int( 'provinceid_ajax', 'post', 0 );
 
 	$token = $nv_Request->get_string( 'token', 'post', '' );
 
-	if( $city_id && $token )
+	if( $provinceid && $token )
 	{
 		$sql = 'SELECT districtid, type, title FROM ' . STORE_ADD. '_district WHERE status = 1 AND provinceid= ' . intval( $provinceid ) . ' ORDER BY weight ASC';
 		$result = $db_slave->query( $sql );
@@ -73,9 +73,9 @@ if($nv_Request->isset_request('id_province', 'get'))
 	$id_province = $nv_Request->get_int('id_province','get', 0);
 	if($id_province > 0)
 	{
-		$list_quan = $db->query('SELECT * FROM '.STORE_ADD.'_district WHERE status = 1 and city_id = '. $id_province .' ORDER BY weight ASC')->fetchAll();
+		$list_district = $db->query('SELECT * FROM '.STORE_ADD.'_district WHERE status = 1 and city_id = '. $id_province .' ORDER BY weight ASC')->fetchAll();
 		$html = '<option value=0>-- Chọn quận huyện --</option>';
-					foreach($list_quan as $l)
+					foreach($list_district as $l)
 					{
 						$html .= '<option value='.$l['district_id'].'>'.$l['type'] . ' '. $l['title'].'</option>';
 					}
@@ -89,9 +89,9 @@ if($nv_Request->isset_request('id_district', 'get'))
 	$id_district = $nv_Request->get_int('id_district','get', 0);
 	if($id_district > 0)
 	{//print($id_district);die;
-		$list_quan = $db->query('SELECT * FROM '.STORE_ADD.'_ward WHERE status = 1 and district_id = '. $id_district .' ORDER BY title ASC')->fetchAll();
+		$list_ward = $db->query('SELECT * FROM '.STORE_ADD.'_ward WHERE status = 1 and district_id = '. $id_district .' ORDER BY title ASC')->fetchAll();
 		$html = '<option value=0>-- Chọn xã phường --</option>';
-					foreach($list_quan as $l)
+					foreach($list_ward as $l)
 					{
 						$html .= '<option value='.$l['ward_id'].'>'.$l['type'] . ' '. $l['title'].'</option>';
 					}
@@ -199,7 +199,7 @@ if ( $nv_Request->isset_request( 'submit', 'post' ) )
 	$row['provinceid'] = $nv_Request->get_int( 'provinceid', 'post', 0 );
 	$row['districtid'] = $nv_Request->get_int( 'district_id', 'post', 0 );
 	$row['wardid'] = $nv_Request->get_int( 'ward_id', 'post', 0 );
-	$row['duong'] = $nv_Request->get_int( 'street_id', 'post', 0 );
+	$row['street'] = $nv_Request->get_int( 'street_id', 'post', 0 );
 	$row['address'] = $nv_Request->get_title( 'address', 'post', '' );
 	$row['address_full'] = $nv_Request->get_title( 'address_full', 'post', '' );
 	
@@ -244,7 +244,7 @@ if( is_file( NV_DOCUMENT_ROOT . $row['image'] ) )
 				$row['add_time'] = 0;
 				
 				
-				$stmt = $db->prepare( 'INSERT INTO ' . STORE . '_rows (title, alias, catalog, sdt, image, website, bodytext, keywords, title_seo, bodytext_seo, provinceid, quanhuyen, xaphuong, duong, dia_chi, dia_chi_day_du, googmaps, add_time, weight, status) VALUES (:title, :alias, :catalog, :sdt, :image, :website, :bodytext, :keywords,  :title_seo, :bodytext_seo, :tinhthanh, :quanhuyen, :xaphuong, :duong, :dia_chi, :dia_chi_day_du, :googmaps, :add_time, :weight, :status)' );
+				$stmt = $db->prepare( 'INSERT INTO ' . STORE . '_rows (title, alias, catalog, sdt, image, website, bodytext, keywords, title_seo, bodytext_seo, provinceid, districtid, wardid, street, address, address_full, googmaps, add_time, weight, status) VALUES (:title, :alias, :catalog, :sdt, :image, :website, :bodytext, :keywords,  :title_seo, :bodytext_seo, :provinceid, :districtid, :wardid, :street, :address, :address_full, :googmaps, :add_time, :weight, :status)' );
 
 				$stmt->bindParam( ':add_time', $row['add_time'], PDO::PARAM_INT );
 				$weight = $db->query( 'SELECT max(weight) FROM ' . STORE . '_rows' )->fetchColumn();
@@ -257,7 +257,7 @@ if( is_file( NV_DOCUMENT_ROOT . $row['image'] ) )
 			}
 			else
 			{
-				$stmt = $db->prepare( 'UPDATE ' . STORE . '_rows SET title = :title, alias = :alias, catalog = :catalog, sdt =:sdt, image = :image, website = :website, bodytext = :bodytext, keywords = :keywords, title_seo =:title_seo, bodytext_seo =:bodytext_seo, provinceid = :provinceid, quanhuyen = :quanhuyen, xaphuong = :xaphuong, duong =:duong, dia_chi = :dia_chi, dia_chi_day_du =:dia_chi_day_du, googmaps=:googmaps WHERE id=' . $row['id'] );
+				$stmt = $db->prepare( 'UPDATE ' . STORE . '_rows SET title = :title, alias = :alias, catalog = :catalog, sdt =:sdt, image = :image, website = :website, bodytext = :bodytext, keywords = :keywords, title_seo =:title_seo, bodytext_seo =:bodytext_seo, provinceid = :provinceid, districtid = :districtid, wardid = :wardid, street =:street, address = :address, address_full =:address_full, googmaps=:googmaps WHERE id=' . $row['id'] );
 			}
 			$stmt->bindParam( ':title', $row['title'], PDO::PARAM_STR );
 			$stmt->bindParam( ':title_seo', $row['title_seo'], PDO::PARAM_STR );
@@ -270,11 +270,11 @@ if( is_file( NV_DOCUMENT_ROOT . $row['image'] ) )
 			$stmt->bindParam( ':keywords', $row['keywords'], PDO::PARAM_STR, strlen($row['keywords']) );
 			$stmt->bindParam( ':bodytext_seo', $row['bodytext_seo'], PDO::PARAM_STR, strlen($row['keywords']) );
 			$stmt->bindParam( ':provinceid', $row['provinceid'], PDO::PARAM_INT );
-			$stmt->bindParam( ':quanhuyen', $row['quanhuyen'], PDO::PARAM_INT );
-			$stmt->bindParam( ':xaphuong', $row['xaphuong'], PDO::PARAM_INT );
-			$stmt->bindParam( ':duong', $row['duong'], PDO::PARAM_INT );
-			$stmt->bindParam( ':dia_chi', $row['dia_chi'], PDO::PARAM_STR );
-			$stmt->bindParam( ':dia_chi_day_du', $row['dia_chi_day_du'], PDO::PARAM_STR );
+			$stmt->bindParam( ':districtid', $row['districtid'], PDO::PARAM_INT );
+			$stmt->bindParam( ':wardid', $row['wardid'], PDO::PARAM_INT );
+			$stmt->bindParam( ':street', $row['street'], PDO::PARAM_INT );
+			$stmt->bindParam( ':address', $row['address'], PDO::PARAM_STR );
+			$stmt->bindParam( ':address_full', $row['address_full'], PDO::PARAM_STR );
 			$stmt->bindParam( ':googmaps', $googmaps, PDO::PARAM_STR, strlen( $googmaps ) );
 
 			$exc = $stmt->execute();
@@ -321,7 +321,7 @@ else
 	$row['tinhthanh'] = 0;
 	$row['quanhuyen'] = 0;
 	$row['xaphuong'] = 0;
-	$row['duong'] = 0;
+	$row['street'] = 0;
 	$row['dia_chi'] = '';
 	$row['dia_chi_day_du'] = '';
 	$row['googmaps'] = array('lat'=>'10.871692', 'lng'=> '106.535366', 'zoom'=> 15);

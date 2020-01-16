@@ -23,12 +23,12 @@ foreach($global_array_cat as $catalog)
 	if($catalog['id'] > 0)
 	{
 		// LẤY DANH SÁCH CỬA HÀNG
-		if($id_tinhthanh>0 && $id_district>0 && $id_ward>0){
-			$list_row = $db->query('SELECT * FROM '. STORE . '_rows WHERE status = 1 AND catalog ='.$catalog['id'] . ' AND tinhthanh ='.$id_tinhthanh . ' AND quanhuyen ='.$id_district . ' AND xaphuong ='.$id_ward)->fetchAll();
-		}elseif($id_tinhthanh>0 && $id_district>0){
-			$list_row = $db->query('SELECT * FROM '. STORE . '_rows WHERE status = 1 AND catalog ='.$catalog['id'] . ' AND tinhthanh ='.$id_tinhthanh . ' AND quanhuyen ='.$id_district)->fetchAll();
-		}elseif($id_tinhthanh>0){
-			$list_row = $db->query('SELECT * FROM '. STORE . '_rows WHERE status = 1 AND catalog ='.$catalog['id'] . ' AND tinhthanh ='.$id_tinhthanh)->fetchAll();
+		if($id_province>0 && $id_district>0 && $id_ward>0){
+			$list_row = $db->query('SELECT * FROM '. STORE . '_rows WHERE status = 1 AND catalog ='.$catalog['id'] . ' AND provinceid ='.$id_province . ' AND districtid ='.$id_district . ' AND wardid ='.$id_ward)->fetchAll();
+		}elseif($id_province>0 && $id_district>0){
+			$list_row = $db->query('SELECT * FROM '. STORE . '_rows WHERE status = 1 AND catalog ='.$catalog['id'] . ' AND provinceid ='.$id_province . ' AND districtid ='.$id_district)->fetchAll();
+		}elseif($id_province>0){
+			$list_row = $db->query('SELECT * FROM '. STORE . '_rows WHERE status = 1 AND catalog ='.$catalog['id'] . ' AND provinceid ='.$id_province)->fetchAll();
 		}else{
 			$list_row = $db->query('SELECT * FROM '. STORE . '_rows WHERE status = 1 AND catalog ='.$catalog['id'])->fetchAll();
 		}

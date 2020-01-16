@@ -354,51 +354,51 @@ foreach($list_cata as $catalog)
 
 
 // LẤY TỈNH THÀNH RA
-	$list_tinhthanh = $db->query('SELECT provinceid, title, type FROM '.STORE_ADD.'_province WHERE status = 1 ORDER BY weight DESC')->fetchAll();
+	$list_province = $db->query('SELECT provinceid, title, type FROM '.STORE_ADD.'_province WHERE status = 1 ORDER BY weight DESC')->fetchAll();
 	
-	foreach($list_tinhthanh as $tinhthanh)
+	foreach($list_province as $province)
 	{
-		if($tinhthanh['provinceid'] == $row['tinhthanh'])
+		if($province['provinceid'] == $row['provinceid'])
 		{
-		$tinhthanh['selected'] = 'selected=selected';
+		$province['selected'] = 'selected=selected';
 		}
-		else $tinhthanh['selected'] = '';
-		$xtpl->assign('l', $tinhthanh);
-        $xtpl->parse('main.tinh');
+		else $province['selected'] = '';
+		$xtpl->assign('l', $province);
+        $xtpl->parse('main.province');
 	}
 	
-	if($row['quanhuyen'] > 0)
+	if($row['districtid'] > 0)
 	{
 		// LẤY QUẬN HUYỆN RA
-		$list_quan = $db->query('SELECT districtid, title, type FROM '.STORE_ADD.'_district WHERE provinceid = '. $row['tinhthanh'] .' and status = 1 ORDER BY weight DESC')->fetchAll();
+		$list_district = $db->query('SELECT districtid, title, type FROM '.STORE_ADD.'_district WHERE provinceid = '. $row['provinceid'] .' and status = 1 ORDER BY weight DESC')->fetchAll();
 		
-		foreach($list_quan as $tinhthanh)
+		foreach($list_district as $district)
 		{
-			if($tinhthanh['districtid'] == $row['quanhuyen'])
+			if($district['districtid'] == $row['districtid'])
 			{
-			$tinhthanh['selected'] = 'selected=selected';
+			$district['selected'] = 'selected=selected';
 			}
-			else $tinhthanh['selected'] = '';
-			$xtpl->assign('l', $tinhthanh);
-			$xtpl->parse('main.quan');
+			else $district['selected'] = '';
+			$xtpl->assign('l', $district);
+			$xtpl->parse('main.district');
 		}
 	}
 	
-	if($row['xaphuong'] > 0)
+	if($row['wardid'] > 0)
 	{
 		// LẤY XÃ PHƯỜNG RA
 		
-		$list_xaphuong = $db->query('SELECT wardid, title ,type FROM '.STORE_ADD.'_ward WHERE districtid = '. $row['quanhuyen'] .' and status = 1')->fetchAll();
+		$list_ward = $db->query('SELECT wardid, title ,type FROM '.STORE_ADD.'_ward WHERE districtid = '. $row['districtid'] .' and status = 1')->fetchAll();
 		
-		foreach($list_xaphuong as $tinhthanh)
+		foreach($list_ward as $ward)
 		{
-			if($tinhthanh['wardid'] == $row['xaphuong'])
+			if($ward['wardid'] == $row['wardid'])
 			{
-			$tinhthanh['selected'] = 'selected=selected';
+			$ward['selected'] = 'selected=selected';
 			}
-			else $tinhthanh['selected'] = '';
-			$xtpl->assign('l', $tinhthanh);
-			$xtpl->parse('main.xa');
+			else $ward['selected'] = '';
+			$xtpl->assign('l', $ward);
+			$xtpl->parse('main.ward');
 		}
 	}
 	

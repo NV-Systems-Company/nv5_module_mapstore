@@ -44,7 +44,7 @@ if($count_op == 1)
 		$op = 'catalogy';
 	}
 }
-$id_tinhthanh = 0;
+$id_province = 0;
 if($count_op >= 2)
 {
 	if(!empty($array_op[1]))
@@ -59,7 +59,7 @@ if($count_op >= 2)
 		}
 		else
 		{
-			$id_tinhthanh = $db->query("SELECT provinceid FROM " . STORE_ADD."_province WHERE alias ='" .$array_op[1] ."'")->fetchColumn();
+			$id_province = $db->query("SELECT provinceid FROM " . STORE_ADD."_province WHERE alias ='" .$array_op[1] ."'")->fetchColumn();
 			if($count_op >= 3){
 				$id_district = $db->query("SELECT districtid FROM " . STORE_ADD."_district WHERE alias ='" .$array_op[2] ."'")->fetchColumn();
 			}else{
@@ -70,7 +70,7 @@ if($count_op >= 2)
 			}else{
 				$id_ward = 0;
 			}
-			if($id_tinhthanh > 0)
+			if($id_province > 0)
 				$op = 'map';
 		}
 	}

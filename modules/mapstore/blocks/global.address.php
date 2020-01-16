@@ -56,7 +56,7 @@ if (! nv_function_exists('nv_address')) {
 			   
 		   
 		  
-		   $id_tinhthanh  = $id_quanhuyen = $id_xaphuong = 0;
+		   $id_province  = $id_district = $id_ward = 0;
 			//print_r(count($array_op));die;
 			
 			$where ='';
@@ -67,27 +67,27 @@ if (! nv_function_exists('nv_address')) {
 				{
 					// TÌM ID TỈNH THÀNH DỰA VÀO ALIAS 
 					
-					$id_tinhthanh = $db->query("SELECT provinceid FROM ".$db_config['dbsystem']. "." .$db_config['prefix']. "_location_province WHERE alias like '". $array_op[1] ."'  ORDER BY weight ASC")->fetchColumn();
+					$id_province = $db->query("SELECT provinceid FROM ".$db_config['dbsystem']. "." .$db_config['prefix']. "_location_province WHERE alias like '". $array_op[1] ."'  ORDER BY weight ASC")->fetchColumn();
 				}
-				if($array_op[0] == 'map' and !empty($array_op[1]) and !empty($array_op[2]) and $id_tinhthanh > 0 )
+				if($array_op[0] == 'map' and !empty($array_op[1]) and !empty($array_op[2]) and $id_province > 0 )
 				{
-					$id_quanhuyen = $db->query("SELECT districtid FROM ".$db_config['dbsystem']. "." .$db_config['prefix']. "_location_district WHERE provinceid =". $id_tinhthanh ." AND alias like '". $array_op[2] ."'")->fetchColumn();
+					$id_district = $db->query("SELECT districtid FROM ".$db_config['dbsystem']. "." .$db_config['prefix']. "_location_district WHERE provinceid =". $id_tinhthanh ." AND alias like '". $array_op[2] ."'")->fetchColumn();
 				
 				}
-				if($array_op[0] == 'map' and !empty($array_op[1]) and !empty($array_op[2]) and !empty($array_op[3])  and $id_tinhthanh > 0 and $id_quanhuyen > 0)
+				if($array_op[0] == 'map' and !empty($array_op[1]) and !empty($array_op[2]) and !empty($array_op[3])  and $id_province > 0 and $id_district > 0)
 				{
-					$id_xaphuong = $db->query("SELECT wardid FROM ".$db_config['dbsystem']. "." .$db_config['prefix']. "_location_ward WHERE  districtid =". $id_quanhuyen ." AND alias like '". $array_op[3] ."'")->fetchColumn();
+					$id_ward = $db->query("SELECT wardid FROM ".$db_config['dbsystem']. "." .$db_config['prefix']. "_location_ward WHERE  districtid =". $id_district ." AND alias like '". $array_op[3] ."'")->fetchColumn();
 				
 				}
 				
-				if($id_tinhthanh > 0)
-				$where .=' AND tinhthanh='.$id_tinhthanh;
+				if($id_province > 0)
+				$where .=' AND provinceid='.$id_province;
 				
-				if($id_quanhuyen > 0)
-				$where .=' AND quanhuyen='.$id_quanhuyen;
+				if($id_district > 0)
+				$where .=' AND districtid='.$id_district;
 				
-				if($id_xaphuong > 0)
-				$where .=' AND xaphuong='.$id_xaphuong;
+				if($id_ward > 0)
+				$where .=' AND wardid='.$id_ward;
 				
 			}
 			

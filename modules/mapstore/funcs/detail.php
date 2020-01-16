@@ -28,7 +28,7 @@ if($id > 0)
 	// DANH SÁCH CỬA HÀNG CÙNG QUẬN 
 	// LẤY DANH SÁCH CỬA HÀNG
 		$array_lienquan = array();
-		$list_row = $db->query('SELECT * FROM '. STORE . '_rows WHERE status > 0 AND id !='. $id .' AND tinhthanh ='.$array_data['tinhthanh'] .' AND quanhuyen ='.$array_data['quanhuyen'])->fetchAll();
+		$list_row = $db->query('SELECT * FROM '. STORE . '_rows WHERE status > 0 AND id !='. $id .' AND provinceid ='.$array_data['provinceid'] .' AND districtid ='.$array_data['districtid'])->fetchAll();
 		
 		foreach($list_row as $item)
 		{

@@ -92,7 +92,7 @@
 				<div class="col-sm-16 col-md-16">
 					<span id="getcity">
 						 
-							<select name="city_id" id="city" class="select">
+							<select name="provinceid" id="city" class="select">
 								<option value ="0">{LANG.post_select_area}</option>
 								<!-- BEGIN: city -->					
 								<option value="{CITY.key}" {CITY.selected}>{CITY.name}</option>
@@ -144,7 +144,7 @@
 			<div class="form-group">
 				<label class="col-sm-8 col-md-8 control-label"><strong>Địa chỉ</strong> <span class="red">(*)</span></label>
 				<div class="col-sm-16 col-md-16">
-						<input class="form-control" name="diachi" type="text" id="diachi" value="{ROW.dia_chi}" maxlength="50" class="input_text">
+						<input class="form-control" name="address" type="text" id="address" value="{ROW.address}" maxlength="50" class="input_text">
 				</div>
 			</div>
 			
@@ -369,11 +369,11 @@
 	});
 	
 	$( 'body' ).on('change', '#city', function(e) {
-	var city_id = $(this).val();
+	var provinceid = $(this).val();
 	$.ajax({
 		type: 'post',
 		url: script_name + '?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=add&nocache=' + new Date().getTime(),
-		data: {action: 'district', city_id_ajax: city_id, token: '{TOKEN}' },
+		data: {action: 'district', provinceid_ajax: provinceid, token: '{TOKEN}' },
 		dataType: 'json',	
 		beforeSend: function( ) {	
 			$('#loading_district').show(); 
@@ -424,8 +424,6 @@ $( 'body' ).on('change', '#district', function(e) {
 				
 		},
 		success: function(json) {	
-		console.log( json['street']);
-		console.log( json['sqlss']);
 			if( json['ward'] )
 			{
  
@@ -433,7 +431,7 @@ $( 'body' ).on('change', '#district', function(e) {
 				var district = $( "#district option:selected" ).text() + ', ';
 				var address  = address = district + city;
  
-				$('#diachi').val( address ).trigger('click');
+				$('#address').val( address ).trigger('click');
 				
 				var geocoder = new google.maps.Geocoder();
 				geocoder.geocode({"address": address, "region": "vi"}, function(results, status){
@@ -484,7 +482,7 @@ $( 'body' ).on('change', '#ward', function(e) {
 		var cityname = $( "#city option:selected" ).text();
 		var districtname = $( "#district option:selected" ).text();
 		var wardname = $( "#ward option:selected" ).text();
-		$('#diachi').val(  wardname +', ' + districtname + ', ' + cityname ).trigger('click');
+		$('#address').val(  wardname +', ' + districtname + ', ' + cityname ).trigger('click');
 	}
 	
 	e.preventDefault();
@@ -497,7 +495,7 @@ $( 'body' ).on('change', '#street', function(e) {
 		var ward = $( "#ward option:selected" ).text();
 		var streetname = $( "#street option:selected" ).text();
 		var type = $( "#street option:selected" ).attr('rel');
-		$('#diachi').val(  type + streetname +',  ' + ward + ', ' + districtname + ', ' + cityname ).trigger('click');
+		$('#address').val(  type + streetname +',  ' + ward + ', ' + districtname + ', ' + cityname ).trigger('click');
 	}
 	
 	e.preventDefault();
@@ -509,11 +507,11 @@ $( 'body' ).on('change', '#project', function(e) {
 	if( $('#project').val() > 0 )
 	{
 		var project_name = $( "#project option:selected" ).text();
-		$('#diachi').val( 'Dự án ' + project_name +', ' + district_name + ', ' + city_name ).trigger('click');
+		$('#address').val( 'Dự án ' + project_name +', ' + district_name + ', ' + city_name ).trigger('click');
 	
 	}else
 	{
-		$('#diachi').val(  district_name + ', ' + city_name ).trigger('click');
+		$('#address').val(  district_name + ', ' + city_name ).trigger('click');
 		
 	}
 	e.preventDefault();
@@ -528,7 +526,7 @@ $( 'body' ).on('change', '#project', function(e) {
 	<div class="form-group">
 		<label class="col-sm-5 col-md-4 control-label"><strong>{LANG.dia_chi}</strong></label>
 		<div class="col-sm-19 col-md-20">
-			<input class="form-control" type="text" name="dia_chi_day_du" value="{ROW.dia_chi_day_du}" />
+			<input class="form-control" type="text" name="address_full" value="{ROW.address_full}" />
 		</div>
 	</div>
 	<div class="form-group" style="text-align: center"><input class="btn btn-primary" name="submit" type="submit" value="{LANG.save}" /></div>

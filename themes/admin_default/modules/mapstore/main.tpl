@@ -55,7 +55,7 @@
 					<td> {VIEW.sdt} </td>
 					<td> {VIEW.catalog} </td>
 					<td> <img height="60" src="{VIEW.image}"/> </td>
-					<td> {VIEW.dia_chi} </td>
+					<td> {VIEW.address} </td>
 					<td class="text-center"><input type="checkbox" name="status" id="change_status_{VIEW.id}" value="{VIEW.id}" {CHECK} onclick="nv_change_status({VIEW.id});" /></td>
 					<td class="text-center"><i class="fa fa-edit fa-lg">&nbsp;</i> <a href="{VIEW.link_edit}#edit">{LANG.edit}</a> - <em class="fa fa-trash-o fa-lg">&nbsp;</em> <a href="{VIEW.link_delete}" onclick="return confirm(nv_is_del_confirm[0]);">{LANG.delete}</a></td>
 				</tr>

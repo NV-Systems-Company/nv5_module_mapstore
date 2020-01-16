@@ -44,7 +44,7 @@ function nv_theme_store_main ( $array_data )
 
 function nv_theme_store_map ( $array_data )
 {
-    global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $op, $nv_Cache, $id_tinhthanh, $id_district, $id_ward, $db, $db_config;
+    global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $op, $nv_Cache, $id_province, $id_district, $id_ward, $db, $db_config;
 
     $xtpl = new XTemplate( $op . '.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_file );
     $xtpl->assign( 'LANG', $lang_module );
@@ -92,14 +92,14 @@ foreach( $global_raovat_city as $key => $item )
 		'key' => $key,
 		'alias' =>  $item['alias'],
 		'name' => $item['title'],
-		'selected' => ( $id_tinhthanh == $key ) ? 'selected="selected"' : '' ) );
+		'selected' => ( $id_province == $key ) ? 'selected="selected"' : '' ) );
 	$xtpl->parse( 'main.city' );
 }
 
 
-if( $id_tinhthanh )
+if( $id_province )
 {
-	$sql = 'SELECT districtid, title, alias FROM ' . $db_config['prefix'] . '_location_district WHERE status = 1 AND provinceid= ' . intval( $id_tinhthanh ) . ' ORDER BY weight ASC';
+	$sql = 'SELECT districtid, title, alias FROM ' . $db_config['prefix'] . '_location_district WHERE status = 1 AND provinceid= ' . intval( $id_province ) . ' ORDER BY weight ASC';
 	$result = $db->query( $sql );
 
 	while( $data = $result->fetch() )
