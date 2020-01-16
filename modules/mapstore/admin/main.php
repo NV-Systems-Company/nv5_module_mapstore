@@ -213,11 +213,11 @@ if( is_file( NV_DOCUMENT_ROOT . $row['image'] ) )
 			$stmt->bindParam( ':bodytext', $row['bodytext'], PDO::PARAM_STR, strlen($row['bodytext']) );
 			$stmt->bindParam( ':keywords', $row['keywords'], PDO::PARAM_STR, strlen($row['keywords']) );
 			$stmt->bindParam( ':provinceid', $row['provinceid'], PDO::PARAM_INT );
-			$stmt->bindParam( ':quanhuyen', $row['quanhuyen'], PDO::PARAM_INT );
-			$stmt->bindParam( ':xaphuong', $row['xaphuong'], PDO::PARAM_INT );
-			$stmt->bindParam( ':duong', $row['duong'], PDO::PARAM_INT );
-			$stmt->bindParam( ':dia_chi', $row['dia_chi'], PDO::PARAM_STR );
-			$stmt->bindParam( ':dia_chi_day_du', $row['dia_chi_day_du'], PDO::PARAM_STR );
+			$stmt->bindParam( ':districtid', $row['districtid'], PDO::PARAM_INT );
+			$stmt->bindParam( ':wardid', $row['wardid'], PDO::PARAM_INT );
+			$stmt->bindParam( ':street', $row['street'], PDO::PARAM_INT );
+			$stmt->bindParam( ':address', $row['address'], PDO::PARAM_STR );
+			$stmt->bindParam( ':address_full', $row['address_full'], PDO::PARAM_STR );
 			$stmt->bindParam( ':googmaps', $googmaps, PDO::PARAM_STR, strlen( $googmaps ) );
 
 			$exc = $stmt->execute();
@@ -256,11 +256,11 @@ else
 	$row['bodytext'] = '';
 	$row['keywords'] = '';
 	$row['provinceid'] = 0;
-	$row['quanhuyen'] = 0;
-	$row['xaphuong'] = 0;
-	$row['duong'] = 0;
-	$row['dia_chi'] = '';
-	$row['dia_chi_day_du'] = '';
+	$row['districtid'] = 0;
+	$row['wardid'] = 0;
+	$row['street'] = 0;
+	$row['address'] = '';
+	$row['address_full'] = '';
 }
 
 if( defined( 'NV_EDITOR' ) ) require_once NV_ROOTDIR . '/' . NV_EDITORSDIR . '/' . NV_EDITOR . '/nv.php';
