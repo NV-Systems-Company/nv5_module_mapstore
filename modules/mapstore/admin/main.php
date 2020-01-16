@@ -255,7 +255,7 @@ else
 	$row['image'] = '';
 	$row['bodytext'] = '';
 	$row['keywords'] = '';
-	$row['tinhthanh'] = 0;
+	$row['provinceid'] = 0;
 	$row['quanhuyen'] = 0;
 	$row['xaphuong'] = 0;
 	$row['duong'] = 0;
