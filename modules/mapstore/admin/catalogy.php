@@ -128,17 +128,7 @@ if ( $nv_Request->isset_request( 'submit', 'post' ) )
 			$row['image'] = '';
 		}
 		
-	// KIỂM TRA TRÙNG ALIAS
-	
-	$check_alias = new NukeViet\Alias\Checkalias;
-	
-	$check_return = $check_alias->check_catid_alias($row['id'], $row['alias']);
-	//print_r($check_alias->check);die;
-	if($check_alias->check == 1)
-	{
-		$error[] = 'alias bị trùng';
-	}
-	// KẾT THÚC TRÙNG ALIAS
+
 	
 	if( empty( $row['title'] ) )
 	{
@@ -181,13 +171,6 @@ if ( $nv_Request->isset_request( 'submit', 'post' ) )
 			if( $exc )
 			{
 				$nv_Cache->delMod( $module_name );
-				
-				// XỬ LÝ THÊM ALIAS
-				if($row['id'] == 0)
-				 $id_page = $db->lastInsertId();
-				else $id_page = $row['id'];
-				// Thêm id_alias
-				$check_alias->add_alias_catalogy_news($id_page, $row['alias'], $module_name, 'catalogy');
 				
 				
 				Header( 'Location: ' . NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=' . $op );
