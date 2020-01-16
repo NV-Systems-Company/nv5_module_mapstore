@@ -6,7 +6,7 @@ Contact : 0988455066
 Zalo : 0909997381
 Faceboock : 
  - FB Support :  https://www.facebook.com/nvholding.co
- - FB Chainman : https://www.facebook.com/admiwmt
+ - FB Chainman : https://www.facebook.com/adminwmt
  
 #Bank Info:
 
